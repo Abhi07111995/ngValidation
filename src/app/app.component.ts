@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
+import { FormGroup,  FormBuilder,  Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +7,34 @@ import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  angForm: FormGroup;
-   constructor(private fb: FormBuilder) {
-    this.createForm();
-  }
-   createForm() {
-    this.angForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      price: ['', Validators.required]
-    });
-  }
+
+  constructor(private fb:FormBuilder){}
+  registrationForm=this.fb.group({
+  userName:['',Validators.required],
+   email:['',Validators.required],
+   password:['',Validators.required],
+   company:['',Validators.required],
+   housenumber:['',Validators.required],
+    streetname:['',Validators.required],
+    city:['',Validators.required],
+    postcode:['',Validators.required],
+  //  address:this.fb.group({
+  //         housenumber:[''],
+  //         streetname: [''],
+  //         city:[''],
+  //         postcode:[''],
+  // })
+});
+//  registrationForm=new FormGroup({
+//    userName:new FormControl(''),
+//    email:new FormControl(''),
+//    password:new FormControl(''),
+//    company:new FormControl(''),
+//    address: new FormGroup({
+//           housenumber: new FormControl(''),
+//           streetname: new FormControl(''),
+//           city: new FormControl(''),
+//           postcode:new FormControl(''),
+//    })
+//  });
 }
